@@ -17,7 +17,12 @@ limitations under the License.
 // xxd -i tiny_conv.tflite > tiny_conv_simple_features_model_data.cc
 // See the README for a full description of the creation process.
 
+
+
 #include "tensorflow/lite/experimental/micro/examples/micro_speech/micro_features/tiny_conv_micro_features_model_data.h"
+
+const char *model_labels[] = { "silence", "unknown", "yes", "no" };
+unsigned char kCategoryCount = 4;
 
 // We need to keep the data array aligned on some architectures.
 #ifdef __has_attribute
@@ -31,8 +36,7 @@ limitations under the License.
 #define DATA_ALIGN_ATTRIBUTE
 #endif
 
-const unsigned char
-    g_tiny_conv_micro_features_model_data[] DATA_ALIGN_ATTRIBUTE = {
+unsigned char model_data[] DATA_ALIGN_ATTRIBUTE = {
   0x1c, 0x00, 0x00, 0x00, 0x54, 0x46, 0x4c, 0x33, 0x00, 0x00, 0x00, 0x00,
   0x00, 0x00, 0x0e, 0x00, 0x18, 0x00, 0x04, 0x00, 0x08, 0x00, 0x0c, 0x00,
   0x10, 0x00, 0x14, 0x00, 0x0e, 0x00, 0x00, 0x00, 0x03, 0x00, 0x00, 0x00,
@@ -1551,5 +1555,5 @@ const unsigned char
   0x06, 0x00, 0x00, 0x00, 0x00, 0x09, 0x06, 0x00, 0x08, 0x00, 0x07, 0x00,
   0x06, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x04
 };
-const int g_tiny_conv_micro_features_model_data_len = 18200;
 
+int g_tiny_conv_micro_features_model_data_len = 18200;

@@ -72,5 +72,6 @@ TfLiteStatus GetAudioSamples(tflite::ErrorReporter* error_reporter,
 
 int32_t LatestAudioTimestamp() {
   //g_latest_audio_timestamp += 100;
+  //Serial.println(millis());
   return millis();
 }
